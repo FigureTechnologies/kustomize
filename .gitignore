@@ -17,3 +17,5 @@ kustomize
 
 # macOS
 *.DS_store
+
+.idea/
