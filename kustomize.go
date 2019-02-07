@@ -19,10 +19,9 @@ package main
 import (
 	"k8s.io/client-go/kubernetes/scheme"
 	"os"
-	"sigs.k8s.io/kustomize/pkg/types"
-
 	"sigs.k8s.io/kustomize/k8sdeps"
 	"sigs.k8s.io/kustomize/pkg/commands"
+	"sigs.k8s.io/kustomize/pkg/types"
 )
 
 func main() {
