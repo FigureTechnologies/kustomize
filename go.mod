@@ -4,6 +4,7 @@ require (
 	github.com/PuerkitoBio/purell v1.1.0
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578
 	github.com/davecgh/go-spew v1.1.0
+	github.com/emicklei/go-restful v2.8.1+incompatible // indirect
 	github.com/evanphx/json-patch v3.0.0+incompatible
 	github.com/ghodss/yaml v1.0.0
 	github.com/go-openapi/jsonpointer v0.0.0-20180322222829-3a0015ad55fa
@@ -31,7 +32,7 @@ require (
 	k8s.io/apimachinery v0.0.0-20180510061931-13b73596e4b6
 	k8s.io/client-go v7.0.0+incompatible
 	k8s.io/kube-openapi v0.0.0-20180510204742-b3f03f553288
-	sigs.k8s.io/kustomize v2.0.0+incompatible
+	sigs.k8s.io/kustomize v2.0.1+incompatible
 )
 
-replace sigs.k8s.io/kustomize => github.com/FigureTechnologies/kustomize v0.0.0-20190208001035-ca5576ff768f
+replace sigs.k8s.io/kustomize => github.com/FigureTechnologies/kustomize v0.0.0-20190207203200-bce0d723b2c2

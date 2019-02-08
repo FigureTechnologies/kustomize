@@ -1,5 +1,5 @@
-github.com/FigureTechnologies/kustomize v0.0.0-20190208001035-ca5576ff768f h1:Z5pSVieJZPTonKKRnAzQLPLwO1a4QSzFR7EhXvr5mFM=
-github.com/FigureTechnologies/kustomize v0.0.0-20190208001035-ca5576ff768f/go.mod h1:f4U3gdR/AQX5rDpuPEC40eGCNUzfdmyu0BZdqifSppg=
+github.com/FigureTechnologies/kustomize v0.0.0-20190207203200-bce0d723b2c2 h1:AUe/tWAbADgNz5bc/s4Cgdv3uIpTroqtfP4hs8k5yZc=
+github.com/FigureTechnologies/kustomize v0.0.0-20190207203200-bce0d723b2c2/go.mod h1:sxrTjb7lfJ0iJXdzkZtsK+VGIsGbVJyWwCkmIfGdW1w=
 github.com/PuerkitoBio/purell v1.1.0 h1:rmGxhojJlM0tuKtfdvliR84CFHljx9ag64t2xmVkjK4=
 github.com/PuerkitoBio/purell v1.1.0/go.mod h1:c11w/QuzBsJSee3cPx9rAFu61PvFxuPbtSwDGJws/X0=
 github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 h1:d+Bc7a5rLufV/sSk/8dngufqelfh6jnri85riMAaF/M=
@@ -45,7 +45,6 @@ github.com/spf13/cobra v0.0.2 h1:NfkwRbgViGoyjBKsLI0QMDcuMnhM+SBg3T0cGfpvKDE=
 github.com/spf13/cobra v0.0.2/go.mod h1:1l0Ry5zgKvJasoi3XT1TypsSe7PqH0Sj9dhYf7v3XqQ=
 github.com/spf13/pflag v1.0.1 h1:aCvUg6QPl3ibpQUxyLkrEkCHtPqYJL4x9AuhqVqFis4=
 github.com/spf13/pflag v1.0.1/go.mod h1:DYY7MBk1bdzusC3SYhjObp+wFpr4gzcvqqNjLnInEg4=
-golang.org/dl v0.0.0-20190204182717-af982ab5594b/go.mod h1:0tp3qm38TTUxauBDFcK1jCpzL7F6U/cK3p86R1GuTTc=
 golang.org/x/net v0.0.0-20170809000501-1c05540f6879 h1:0rFa7EaCGdQPmZVbo9F7MNF65b8dyzS6EUnXjs9Cllk=
 golang.org/x/net v0.0.0-20170809000501-1c05540f6879/go.mod h1:mL1N/T3taQHkDXs73rZJwtUhF3w3ftmwwsq0BUmARs4=
 golang.org/x/text v0.3.0 h1:g61tztE5qeGQ89tm6NTjjM9VPIm088od1l6aSorWRWg=
@@ -59,7 +58,7 @@ k8s.io/api v0.0.0-20180510062335-53d615ae3f44 h1:zQ8YhMpuc1QJoor+Vm1moP9iEOyaQgO
 k8s.io/api v0.0.0-20180510062335-53d615ae3f44/go.mod h1:iuAfoD4hCxJ8Onx9kaTIt30j7jUFS00AXQi6QMi99vA=
 k8s.io/apimachinery v0.0.0-20180510061931-13b73596e4b6 h1:pJrzRmry9HLPxkVGMk57cfeGRy/WG0oYXuji9t4zD1M=
 k8s.io/apimachinery v0.0.0-20180510061931-13b73596e4b6/go.mod h1:ccL7Eh7zubPUSh9A3USN90/OzHNSVN6zxzde07TDCL0=
-k8s.io/client-go v7.0.0+incompatible h1:gokIETH5yPpln/LuXmg1TLVH5bMSaVQTVxuRizwjWwU=
+k8s.io/client-go v7.0.0+incompatible h1:kiH+Y6hn+pc78QS/mtBfMJAMIIaWevHi++JvOGEEQp4=
 k8s.io/client-go v7.0.0+incompatible/go.mod h1:7vJpHMYJwNQCWgzmNV+VYUl1zCObLyodBc8nIyt8L5s=
 k8s.io/kube-openapi v0.0.0-20180510204742-b3f03f553288 h1:AhFqcaw5JbAAaZHxTe1fT+Jtek0pZmIwwt6FbsMA9to=
 k8s.io/kube-openapi v0.0.0-20180510204742-b3f03f553288/go.mod h1:BXM9ceUBTj2QnfH2MK1odQs778ajze1RxcmP6S8RVVc=
