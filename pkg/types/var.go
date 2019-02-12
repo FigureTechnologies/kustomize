@@ -61,6 +61,7 @@ type Target struct {
 // for Var.FieldRef
 type FieldSelector struct {
 	FieldPath string `json:"fieldPath,omitempty" yaml:"fieldPath,omitempty"`
+	FieldType string `json:"fieldType,omitempty" yaml:"fieldPath,omitempty"`
 }
 
 // defaulting sets reference to field used by default.

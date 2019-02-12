@@ -10,14 +10,14 @@ import (
 
 type refvarTransformer struct {
 	fieldSpecs  []config.FieldSpec
-	mappingFunc func(string) string
+	mappingFunc func(string) interface{}
 }
 
 // NewRefVarTransformer returns a Transformer that replaces $(VAR) style
 // variables with values.
 // The fieldSpecs are the places to look for occurrences of $(VAR).
 func NewRefVarTransformer(
-	varMap map[string]string, fs []config.FieldSpec) Transformer {
+	varMap map[string]interface{}, fs []config.FieldSpec) Transformer {
 	if len(varMap) == 0 {
 		return NewNoOpTransformer()
 	}
@@ -36,7 +36,7 @@ func (rv *refvarTransformer) replaceVars(in interface{}) (interface{}, error) {
 	case []interface{}:
 		var xs []string
 		for _, a := range in.([]interface{}) {
-			xs = append(xs, expansion.Expand(a.(string), rv.mappingFunc))
+			xs = append(xs, expansion.Expand(a.(string), rv.mappingFunc).(string))
 		}
 		return xs, nil
 	case interface{}:

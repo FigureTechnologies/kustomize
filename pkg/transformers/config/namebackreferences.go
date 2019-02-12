@@ -89,7 +89,7 @@ func (s nbrSlice) mergeOne(other NameBackReferences) (nbrSlice, error) {
 	found := false
 	for _, c := range s {
 		if c.Gvk.Equals(other.Gvk) {
-			c.FieldSpecs, err = c.FieldSpecs.mergeAll(other.FieldSpecs)
+			c.FieldSpecs, err = c.FieldSpecs.mergeAll(other.FieldSpecs, true)
 			if err != nil {
 				return nil, err
 			}

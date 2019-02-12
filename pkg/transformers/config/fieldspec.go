@@ -102,10 +102,10 @@ func (s fsSlice) Less(i, j int) bool {
 // Items already present are ignored.
 // Items that conflict (primary key matches, but remain data differs)
 // result in an error.
-func (s fsSlice) mergeAll(incoming fsSlice) (result fsSlice, err error) {
+func (s fsSlice) mergeAll(incoming fsSlice, errorOnConflict bool) (result fsSlice, err error) {
 	result = s
 	for _, x := range incoming {
-		result, err = result.mergeOne(x)
+		result, err = result.mergeOne(x, errorOnConflict)
 		if err != nil {
 			return nil, err
 		}
@@ -117,11 +117,11 @@ func (s fsSlice) mergeAll(incoming fsSlice) (result fsSlice, err error) {
 // If the item's primary key is already present, and there are no
 // conflicts, it is ignored (we don't want duplicates).
 // If there is a conflict, the merge fails.
-func (s fsSlice) mergeOne(x FieldSpec) (fsSlice, error) {
+func (s fsSlice) mergeOne(x FieldSpec, errorOnConflict bool) (fsSlice, error) {
 	i := s.index(x)
 	if i > -1 {
 		// It's already there.
-		if s[i].CreateIfNotPresent != x.CreateIfNotPresent {
+		if errorOnConflict && s[i].CreateIfNotPresent != x.CreateIfNotPresent {
 			return nil, fmt.Errorf("conflicting fieldspecs")
 		}
 		return s, nil

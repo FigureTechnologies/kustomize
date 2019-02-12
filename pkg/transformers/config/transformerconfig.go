@@ -63,25 +63,25 @@ func (t *TransformerConfig) sortFields() {
 
 // AddPrefixFieldSpec adds a FieldSpec to NamePrefix
 func (t *TransformerConfig) AddPrefixFieldSpec(fs FieldSpec) (err error) {
-	t.NamePrefix, err = t.NamePrefix.mergeOne(fs)
+	t.NamePrefix, err = t.NamePrefix.mergeOne(fs, true)
 	return err
 }
 
 // AddSuffixFieldSpec adds a FieldSpec to NameSuffix
 func (t *TransformerConfig) AddSuffixFieldSpec(fs FieldSpec) (err error) {
-	t.NameSuffix, err = t.NameSuffix.mergeOne(fs)
+	t.NameSuffix, err = t.NameSuffix.mergeOne(fs, true)
 	return err
 }
 
 // AddLabelFieldSpec adds a FieldSpec to CommonLabels
 func (t *TransformerConfig) AddLabelFieldSpec(fs FieldSpec) (err error) {
-	t.CommonLabels, err = t.CommonLabels.mergeOne(fs)
+	t.CommonLabels, err = t.CommonLabels.mergeOne(fs, true)
 	return err
 }
 
 // AddAnnotationFieldSpec adds a FieldSpec to CommonAnnotations
 func (t *TransformerConfig) AddAnnotationFieldSpec(fs FieldSpec) (err error) {
-	t.CommonAnnotations, err = t.CommonAnnotations.mergeOne(fs)
+	t.CommonAnnotations, err = t.CommonAnnotations.mergeOne(fs, true)
 	return err
 }
 
@@ -100,28 +100,28 @@ func (t *TransformerConfig) Merge(input *TransformerConfig) (
 		return t, nil
 	}
 	merged = &TransformerConfig{}
-	merged.NamePrefix, err = t.NamePrefix.mergeAll(input.NamePrefix)
+	merged.NamePrefix, err = t.NamePrefix.mergeAll(input.NamePrefix, true)
 	if err != nil {
 		return nil, err
 	}
-	merged.NameSuffix, err = t.NameSuffix.mergeAll(input.NameSuffix)
+	merged.NameSuffix, err = t.NameSuffix.mergeAll(input.NameSuffix, true)
 	if err != nil {
 		return nil, err
 	}
-	merged.NameSpace, err = t.NameSpace.mergeAll(input.NameSpace)
+	merged.NameSpace, err = t.NameSpace.mergeAll(input.NameSpace, false)
 	if err != nil {
 		return nil, err
 	}
 	merged.CommonAnnotations, err = t.CommonAnnotations.mergeAll(
-		input.CommonAnnotations)
+		input.CommonAnnotations, false)
 	if err != nil {
 		return nil, err
 	}
-	merged.CommonLabels, err = t.CommonLabels.mergeAll(input.CommonLabels)
+	merged.CommonLabels, err = t.CommonLabels.mergeAll(input.CommonLabels, false)
 	if err != nil {
 		return nil, err
 	}
-	merged.VarReference, err = t.VarReference.mergeAll(input.VarReference)
+	merged.VarReference, err = t.VarReference.mergeAll(input.VarReference, false)
 	if err != nil {
 		return nil, err
 	}

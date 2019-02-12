@@ -8,6 +8,8 @@ github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/emicklei/go-restful v2.8.1+incompatible h1:AyDqLHbJ1quqbWr/OWDw+PlIP8ZFoTmYrGYaxzrLbNg=
 github.com/emicklei/go-restful v2.8.1+incompatible/go.mod h1:otzb+WCGbkyDHkqmQmT5YD2WR4BBwUdeQoFo8l/7tVs=
+github.com/emicklei/go-restful v2.9.0+incompatible h1:YKhDcF/NL19iSAQcyCATL1MkFXCzxfdaTiuJKr18Ank=
+github.com/emicklei/go-restful v2.9.0+incompatible/go.mod h1:otzb+WCGbkyDHkqmQmT5YD2WR4BBwUdeQoFo8l/7tVs=
 github.com/evanphx/json-patch v3.0.0+incompatible h1:l91aby7TzBXBdmF8heZqjskeH9f3g7ZOL8/sSe+vTlU=
 github.com/evanphx/json-patch v3.0.0+incompatible/go.mod h1:50XU6AFN0ol/bzJsmQLiYLvXMP4fmwYFNcr97nuDLSk=
 github.com/ghodss/yaml v1.0.0 h1:wQHKEahhL6wmXdzwWG11gIVCkOv05bNOh+Rxn0yngAk=
@@ -62,3 +64,5 @@ k8s.io/client-go v7.0.0+incompatible h1:kiH+Y6hn+pc78QS/mtBfMJAMIIaWevHi++JvOGEE
 k8s.io/client-go v7.0.0+incompatible/go.mod h1:7vJpHMYJwNQCWgzmNV+VYUl1zCObLyodBc8nIyt8L5s=
 k8s.io/kube-openapi v0.0.0-20180510204742-b3f03f553288 h1:AhFqcaw5JbAAaZHxTe1fT+Jtek0pZmIwwt6FbsMA9to=
 k8s.io/kube-openapi v0.0.0-20180510204742-b3f03f553288/go.mod h1:BXM9ceUBTj2QnfH2MK1odQs778ajze1RxcmP6S8RVVc=
+sigs.k8s.io/kustomize v2.0.1+incompatible h1:rfBSJpFHTgrxoQ79w5JnTo00KUuod/U7mwIf36ozNw0=
+sigs.k8s.io/kustomize v2.0.1+incompatible/go.mod h1:MkjgH3RdOWrievjo6c9T245dYlB5QeXV4WCbnt/PEpU=

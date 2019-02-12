@@ -19,6 +19,7 @@ package expansion
 
 import (
 	"bytes"
+	"reflect"
 )
 
 const (
@@ -36,8 +37,8 @@ func syntaxWrap(input string) string {
 // implements the expansion semantics defined in the expansion spec; it
 // returns the input string wrapped in the expansion syntax if no mapping
 // for the input is found.
-func MappingFuncFor(context ...map[string]string) func(string) string {
-	return func(input string) string {
+func MappingFuncFor(context ...map[string]interface{}) func(string) interface{} {
+	return func(input string) interface{} {
 		for _, vars := range context {
 			val, ok := vars[input]
 			if ok {
@@ -52,7 +53,7 @@ func MappingFuncFor(context ...map[string]string) func(string) string {
 // Expand replaces variable references in the input string according to
 // the expansion spec using the given mapping function to resolve the
 // values of variables.
-func Expand(input string, mapping func(string) string) string {
+func Expand(input string, mapping func(string) interface {}) interface{} {
 	var buf bytes.Buffer
 	checkpoint := 0
 	for cursor := 0; cursor < len(input); cursor++ {
@@ -69,7 +70,12 @@ func Expand(input string, mapping func(string) string) string {
 				// We were able to read a variable name correctly;
 				// apply the mapping to the variable name and copy the
 				// bytes into the buffer
-				buf.WriteString(mapping(read))
+				val := mapping(read)
+				if (advance + 1 == len(input) &&
+					reflect.TypeOf(val).Kind() == reflect.Int64) {
+					return val
+				}
+				buf.WriteString(val.(string))
 			} else {
 				// Not a variable name; copy the read bytes into the buffer
 				buf.WriteString(read)
@@ -83,7 +89,6 @@ func Expand(input string, mapping func(string) string) string {
 			checkpoint = cursor + 1
 		}
 	}
-
 	// Return the buffer and any remaining unwritten bytes in the
 	// input string.
 	return buf.String() + input[checkpoint:]

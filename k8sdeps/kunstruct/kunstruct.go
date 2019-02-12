@@ -90,3 +90,17 @@ func (fs *UnstructAdapter) GetFieldValue(path string) (string, error) {
 	}
 	return "", fmt.Errorf("no field named '%s'", path)
 }
+
+// GetFieldInt64 returns value at the given fieldpath.
+func (fs *UnstructAdapter) GetFieldInt64(path string) (int64, error) {
+	fields, err := parseFields(path)
+	if err != nil {
+		return -1, err
+	}
+	s, found, err := unstructured.NestedFloat64(
+		fs.UnstructuredContent(), fields...)
+	if found || err != nil {
+		return int64(s), err
+	}
+	return -1, fmt.Errorf("no field named '%s'", path)
+}

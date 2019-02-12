@@ -26,7 +26,7 @@ import (
 
 // mapTransformer applies a string->string map to fieldSpecs.
 type mapTransformer struct {
-	m          map[string]string
+	m          map[string]interface{}
 	fieldSpecs []config.FieldSpec
 }
 
@@ -34,19 +34,19 @@ var _ Transformer = &mapTransformer{}
 
 // NewLabelsMapTransformer constructs a mapTransformer.
 func NewLabelsMapTransformer(
-	m map[string]string, fs []config.FieldSpec) (Transformer, error) {
+	m map[string]interface{}, fs []config.FieldSpec) (Transformer, error) {
 	return NewMapTransformer(fs, m)
 }
 
 // NewAnnotationsMapTransformer construct a mapTransformer.
 func NewAnnotationsMapTransformer(
-	m map[string]string, fs []config.FieldSpec) (Transformer, error) {
+	m map[string]interface{}, fs []config.FieldSpec) (Transformer, error) {
 	return NewMapTransformer(fs, m)
 }
 
 // NewMapTransformer construct a mapTransformer.
 func NewMapTransformer(
-	pc []config.FieldSpec, m map[string]string) (Transformer, error) {
+	pc []config.FieldSpec, m map[string]interface{}) (Transformer, error) {
 	if m == nil {
 		return NewNoOpTransformer(), nil
 	}

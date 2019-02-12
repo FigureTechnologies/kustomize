@@ -148,19 +148,19 @@ func (o *addMetadataOptions) convertToMap(arg string) (map[string]string, error)
 
 func (o *addMetadataOptions) addAnnotations(m *types.Kustomization) error {
 	if m.CommonAnnotations == nil {
-		m.CommonAnnotations = make(map[string]string)
+		m.CommonAnnotations = make(map[string]interface{})
 	}
 	return o.writeToMap(m.CommonAnnotations, annotation)
 }
 
 func (o *addMetadataOptions) addLabels(m *types.Kustomization) error {
 	if m.CommonLabels == nil {
-		m.CommonLabels = make(map[string]string)
+		m.CommonLabels = make(map[string]interface{})
 	}
 	return o.writeToMap(m.CommonLabels, label)
 }
 
-func (o *addMetadataOptions) writeToMap(m map[string]string, kind kindOfAdd) error {
+func (o *addMetadataOptions) writeToMap(m map[string]interface{}, kind kindOfAdd) error {
 	for k, v := range o.metadata {
 		if _, ok := m[k]; ok {
 			return fmt.Errorf("%s %s already in kustomization file", kind, k)

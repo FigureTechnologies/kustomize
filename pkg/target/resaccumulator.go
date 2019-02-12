@@ -94,16 +94,27 @@ func (ra *ResAccumulator) MergeAccumulator(other *ResAccumulator) (err error) {
 // makeVarReplacementMap returns a map of Var names to
 // their final values. The values are strings intended
 // for substitution wherever the $(var.Name) occurs.
-func (ra *ResAccumulator) makeVarReplacementMap() (map[string]string, error) {
-	result := map[string]string{}
+func (ra *ResAccumulator) makeVarReplacementMap() (map[string]interface{}, error) {
+	result := map[string]interface{}{}
 	for _, v := range ra.varSet.Set() {
 		id := resid.NewResId(v.ObjRef.GVK(), v.ObjRef.Name)
 		if r, found := ra.resMap.DemandOneMatchForId(id); found {
-			s, err := r.GetFieldValue(v.FieldRef.FieldPath)
-			if err != nil {
-				return nil, fmt.Errorf("field path err for var: %+v", v)
+			switch (v.FieldRef.FieldType) {
+			case "int":
+				i, err := r.GetFieldInt64(v.FieldRef.FieldPath)
+				if err != nil {
+					return nil, fmt.Errorf("field path err for var: %+v", v)
+				}
+				result[v.Name] = i
+				break;
+			default:
+				s, err := r.GetFieldValue(v.FieldRef.FieldPath)
+				if err != nil {
+					return nil, fmt.Errorf("field path err for var: %+v", v)
+				}
+				result[v.Name] = s
+				break;
 			}
-			result[v.Name] = s
 		} else {
 			// Should this be an error?
 			log.Printf("var %v defined but not used", v)

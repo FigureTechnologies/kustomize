@@ -48,6 +48,7 @@ type Kunstructured interface {
 	SetMap(map[string]interface{})
 	Copy() Kunstructured
 	GetFieldValue(string) (string, error)
+	GetFieldInt64(string) (int64, error)
 	MarshalJSON() ([]byte, error)
 	UnmarshalJSON([]byte) error
 	GetGvk() gvk.Gvk

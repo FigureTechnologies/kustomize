@@ -159,7 +159,7 @@ var mergeTests = []struct {
 
 func TestFsSlice_MergeAll(t *testing.T) {
 	for _, item := range mergeTests {
-		result, err := item.original.mergeAll(item.incoming)
+		result, err := item.original.mergeAll(item.incoming, true)
 		if item.err == nil {
 			if err != nil {
 				t.Fatalf("test %s: unexpected err %v", item.name, err)

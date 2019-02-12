@@ -58,10 +58,10 @@ type Kustomization struct {
 	Namespace string `json:"namespace,omitempty" yaml:"namespace,omitempty"`
 
 	// CommonLabels to add to all objects and selectors.
-	CommonLabels map[string]string `json:"commonLabels,omitempty" yaml:"commonLabels,omitempty"`
+	CommonLabels map[string]interface{} `json:"commonLabels,omitempty" yaml:"commonLabels,omitempty"`
 
 	// CommonAnnotations to add to all objects.
-	CommonAnnotations map[string]string `json:"commonAnnotations,omitempty" yaml:"commonAnnotations,omitempty"`
+	CommonAnnotations map[string]interface{} `json:"commonAnnotations,omitempty" yaml:"commonAnnotations,omitempty"`
 
 	// PatchesStrategicMerge specifies the relative path to a file
 	// containing a strategic merge patch.  Format documented at
